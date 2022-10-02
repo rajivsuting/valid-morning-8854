@@ -26,7 +26,7 @@ public class Main {
 		Scanner in = new Scanner(System.in); 
 		System.out.println();
 		System.out.println("           Welcome to MGNREGA          ");
-		System.out.println("      Press 1 to Login as Backend Developer");
+		System.out.println("      Press 1 to Login as BDO");
 		System.out.println("      Press 2 to Login as Gram Panchayat Member" );
 		System.out.println("      Press 3 to Login Exit" );
 		try {

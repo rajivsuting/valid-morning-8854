@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.List;
 
+import com.masai.bean.BDO;
 import com.masai.bean.Employee;
 import com.masai.bean.GPM;
 import com.masai.exception.EmployeeException;
@@ -55,9 +56,37 @@ String message = "There is some error while adding new Employee " ;
 
 	@Override
 	public boolean backEndUserCheck(String username, String password) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		BDO bed = new BDO();
+		try(Connection c = DBConnection.provideConnection()){
+			
+			PreparedStatement ps = c.prepareStatement("select * from BDO where username = ? AND password = ?");
+			
+			ps.setString(1, username);
+			ps.setString(2, password);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				
+			String user = 	rs.getString("username");
+			String pass = 	rs.getString("password");
+				
+			bed.setUsername(user);
+			bed.setPassword(pass);
+			return true ;
+			}else {
+				return false;
+			}
+			
+		}catch(Exception e) {
+			return false;
+		}
+		
+		
+		
+		
 	}
+
 
 	@Override
 	public boolean GPOUserCheck(String username, String password) throws SQLException {
