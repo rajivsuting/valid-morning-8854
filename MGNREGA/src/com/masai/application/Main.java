@@ -25,7 +25,7 @@ public class Main {
 		int choice = 0 ; 
 		Scanner in = new Scanner(System.in); 
 		System.out.println();
-		System.out.println("           Welcome to MGNREGA          ");
+		System.out.println("-------------Welcome to MGNREGA-----------------");
 		System.out.println("      Press 1 to Login as BDO");
 		System.out.println("      Press 2 to Login as Gram Panchayat Member" );
 		System.out.println("      Press 3 to Login Exit" );
@@ -33,11 +33,11 @@ public class Main {
 			
 			 choice = in.nextInt();
 		}catch(InputMismatchException e) {
-			System.out.println(Console.RED_BACKGROUND+"Enter Valid Number");
+			System.out.println("Enter Valid Number");
 		}
 		
 		if(choice == 1) {
-			System.out.println(Console.BLUE+"Enter UserName");
+			System.out.println("Enter UserName/Email");
 			String username = in.next();
 			
 			System.out.println("Enter Password");	
@@ -64,13 +64,13 @@ public class Main {
 							
 							System.out.println("Please Select Queries which you want to Apply ");
 							System.out.println("Press 1 to create New Project");
-							System.out.println("Press 2 to watch all Project");
+							System.out.println("Press 2 to View all Project");
 							System.out.println("Press 3 to Create new GramPanchayat Members");
-							System.out.println("Press 4 to Watch all GramPanchayat Members");
+							System.out.println("Press 4 to View all GramPanchayat Members");
 							System.out.println("Press 5 to Allocate Project to GramPanchayatMember");
-							System.out.println("Press 6 to see all the list of employee working on Project");
-							System.out.println("Press 7 to Go Back to login page");
-							System.out.println("Press 8 to Exit");
+							//System.out.println("Press 6 to view the list of employee working on Project");
+							System.out.println("Press 6 to Go Back to login page");
+							System.out.println("Press 7 to Exit");
 							System.out.println("---------------------------------------------------------------------");
 							
 							
@@ -93,11 +93,11 @@ public class Main {
 									break;
 								case "5" : AllocateProjectToGPM.main();
 									break ;
-								case "6" : FindEmployeeByProject.main();
-									break;
-								case "7" : Main.main(args); 
+//								case "6" : FindEmployeeByProject.main();
+//									break;
+								case "6" : Main.main(args); 
 									break ;
-								case "8" : System.exit(0);
+								case "7" : System.exit(0);
 							}
 							break ; 
 						}
@@ -108,7 +108,7 @@ public class Main {
 
 		
 		else if(choice == 2) {
-			System.out.println("Enter UserName");
+			System.out.println("Enter Email");
 			String username = in.next();
 			
 			System.out.println("Enter Password");	

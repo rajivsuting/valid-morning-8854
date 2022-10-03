@@ -47,7 +47,7 @@ public class GPMDaoImpl implements GPMDao {
 		
 		try(Connection c = DBConnection.provideConnection()){
 			
-			PreparedStatement ps = c.prepareStatement("select * from grampanchayatmember");
+			PreparedStatement ps = c.prepareStatement("select * from GPM");
 			
 			ResultSet rs =  ps.executeQuery();
 			
@@ -55,9 +55,9 @@ public class GPMDaoImpl implements GPMDao {
 			while(rs.next()) {
 				
 				int id = rs.getInt("ID");
-				String name = rs.getString("Gname");
+				String name = rs.getString("name");
 				String loc = rs.getString("Location");
-				String usr = rs.getString("username");
+				String usr = rs.getString("email");
 				String pass = rs.getString("password");
 				
 				list.add(new GPM(id, name, loc, usr, pass));

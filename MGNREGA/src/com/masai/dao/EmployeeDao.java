@@ -15,7 +15,7 @@ public interface EmployeeDao {
 	
 	public List<String> viewEmpByProjectName(String proj) throws SQLException; 
 	
-	public Employee checkEmployee(String empN, int id) throws EmployeeException , SQLException ;
+	public Employee checkEmployee(int id) throws EmployeeException , SQLException ;
 	
 	public List<String> checkWageByProject(String projName) throws EmployeeException , SQLException ;
 		

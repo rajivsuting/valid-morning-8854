@@ -7,7 +7,7 @@ import com.masai.bean.Employee;
 import com.masai.dao.EmployeeDao;
 import com.masai.dao.EmployeeDaoImpl;
 import com.masai.exception.EmployeeException;
-import com.masai.utility.Console;
+
 
 public class DisplayEmployee {
 	
@@ -27,14 +27,14 @@ public class DisplayEmployee {
 			
 			
 			EmployeeDao ed = new EmployeeDaoImpl();
-			Employee e  = ed.checkEmployee(name, id);
+			Employee e  = ed.checkEmployee(id);
 			if(e == null) {
 				System.out.println("Employee with name "+name +" and Id "+id+" doesNot Exist");
 			}else {
-				System.out.println(e+Console.RESET);
+				System.out.println(e);
 			}
 		}catch(InputMismatchException ee){
-			System.out.println(Console.RED+"Please Id Must be Number"+Console.RESET);
+			System.out.println("Please Id Must be Number");
 			
 		}
 	}

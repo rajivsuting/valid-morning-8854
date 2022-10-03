@@ -90,10 +90,10 @@ String message = "There is some error while adding new Employee " ;
 
 	@Override
 	public boolean GPOUserCheck(String username, String password) throws SQLException {
-		GPM bed = new GPM();
+		GPM gpm = new GPM();
 		try(Connection c = DBConnection.provideConnection()){
 			
-			PreparedStatement ps = c.prepareStatement("select * from GPM where username = ? AND password = ?");
+			PreparedStatement ps = c.prepareStatement("select * from GPM where email = ? AND password = ?");
 
 			ps.setString(1, username);
 			ps.setString(2, password);
@@ -102,11 +102,11 @@ String message = "There is some error while adding new Employee " ;
 			
 			if(rs.next()) {
 				
-			String user = 	rs.getString("username");
+			String user = 	rs.getString("email");
 			String pass = 	rs.getString("password");
 				
-			bed.setName(user);
-			bed.setPassword(pass);
+			gpm.setName(user);
+			gpm.setPassword(pass);
 			return true ;
 			}else {
 				return false;
@@ -126,7 +126,7 @@ String message = "There is some error while adding new Employee " ;
 
 		try(Connection c = DBConnection.provideConnection()){
 			
-			PreparedStatement ps = c.prepareStatement(" select  e.name ,g.name, e.wage , e.duty  ,e.wage*e.duty as totalWage from project p inner join employee e inner join GPM g on name = ? and e.project_assigned = p.id and e.gpoAssigned = g.id; ;");
+			PreparedStatement ps = c.prepareStatement(" select  e.name ,g.name, e.wages , e.duty  ,e.wages*e.duty as totalWage from project p inner join employee e inner join GPM g on name = ? and e.project_assigned = p.id and e.gpoAssigned = g.id; ;");
 			
 			ps.setString(1, proj);
 			
@@ -142,7 +142,7 @@ String message = "There is some error while adding new Employee " ;
 					 	flag = true ; 
 						String a = rs.getString("e.name");
 						String b = rs.getString("g.name");
-						int d = rs.getInt("e.wage");
+						int d = rs.getInt("e.wages");
 						int e = rs.getInt("e.duty");
 						int f = rs.getInt("totalWage");
 						fmt.format("%10s %10s %10s %10s %10s\n", a , b ,d,e,f);
@@ -151,7 +151,7 @@ String message = "There is some error while adding new Employee " ;
 					 }
 					 System.out.println(fmt+Console.RESET);
 			 }else {
-				 System.out.println(Console.RED+"List is Empty Or there no project by this name");
+				 System.out.println("List is Empty Or there no project by this name");
 			 }
 		
 		 
@@ -163,18 +163,17 @@ String message = "There is some error while adding new Employee " ;
 	}
 
 	@Override
-	public Employee checkEmployee(String empN, int id) throws EmployeeException, SQLException {
+	public Employee checkEmployee(int id) throws EmployeeException, SQLException {
 		// TODO Auto-generated method stub
 		Employee em = null;
 		
 		try(Connection c = DBConnection.provideConnection()){
 			
 			
-			PreparedStatement ps = c.prepareStatement("select * from employee where name = ? and idd = ?");
+			PreparedStatement ps = c.prepareStatement("select * from employee where id = ?");
 			
 			
-			ps.setString(1, empN);
-			ps.setInt(2, id);
+			ps.setInt(1, id);
 			
 			ResultSet rs = ps.executeQuery();
 			
@@ -184,7 +183,7 @@ String message = "There is some error while adding new Employee " ;
 				
 				String n = rs.getString("name");
 				
-				String g = rs.getString("adress");
+				String g = rs.getString("address");
 				
 				int wage = rs.getInt("wage");
 				

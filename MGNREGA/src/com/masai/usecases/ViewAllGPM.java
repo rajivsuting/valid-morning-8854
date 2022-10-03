@@ -19,8 +19,8 @@ public class ViewAllGPM {
 		GPMDao gpa = new GPMDaoImpl();
 		List<GPM> gpm = gpa.viewAllGPM();
 		Formatter f = new Formatter();
-		System.out.println(Console.BLACK_BOLD+"=========================================================================================");
-		f.format("%15s %15s %15s %15s %15s\n", "ID" , "gname" , "location" , "username" , "password");
+		System.out.println("=========================================================================================");
+		f.format("%15s %15s %15s %15s %15s\n", "id" , "name" , "location" , "email" , "password");
 		System.out.println(f);
 		gpm.forEach(g->System.out.println(g.forString()));
 		System.out.println("==================================================================================================================="+Console.RESET);

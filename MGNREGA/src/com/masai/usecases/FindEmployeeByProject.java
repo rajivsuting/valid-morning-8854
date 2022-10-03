@@ -13,7 +13,7 @@ public class FindEmployeeByProject {
 		// TODO Auto-generated method stub
 		
 		Scanner in = new Scanner(System.in);
-		System.out.println("Add Project Name");
+		System.out.println("Enter Project Name");
 		String x = in.nextLine();
 		EmployeeDao pd = new EmployeeDaoImpl();
 		

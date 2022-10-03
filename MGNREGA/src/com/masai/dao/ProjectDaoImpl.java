@@ -18,7 +18,7 @@ public class ProjectDaoImpl implements ProjectDao {
 	public String addProject(Project p) throws ProjectException, SQLException {
 		// TODO Auto-generated method stub
 		
-		String message = Console.RED+ "Not Inserted !";
+		String message = "Not Inserted !";
 		
 		try(Connection con = DBConnection.provideConnection()){
 			PreparedStatement ps = con.prepareStatement("insert into Project(name,location) values(?,?)");
@@ -29,7 +29,7 @@ public class ProjectDaoImpl implements ProjectDao {
 			int x = ps.executeUpdate();
 			
 			if(x > 0) {
-				message = Console.GREEN+ "Project added successfully...";
+				message =  "Project added successfully...";
 			}else {
 				throw new ProjectException(message);
 			}
@@ -45,12 +45,12 @@ public class ProjectDaoImpl implements ProjectDao {
 	@Override
 	public String allocateProjectToGPM(String p, String g) throws SQLException {
 		// TODO Auto-generated method stub
-		String message = Console.RED+"Tasks assignment error !"+Console.RESET ;
+		String message ="Tasks assignment error !";
 		
 		try(Connection con = DBConnection.provideConnection()){
 			PreparedStatement ps = con.prepareStatement("insert into gpm_pro values("
 					+ "(select id from project where name = ?),"
-					+ "(select ID from GPM where name = ?));");
+					+ "(select id from GPM where name = ?));");
 			
 			ps.setString(1, p);
 			ps.setString(2, g);
@@ -58,12 +58,12 @@ public class ProjectDaoImpl implements ProjectDao {
 			int update = ps.executeUpdate();
 			
 			if(update > 0) {
-				message = Console.GREEN+"Project " + p + " assigned successfully to " + g + " GP memeber"+Console.RESET;
+				message = "Project " + p + " assigned successfully to " + g + " GP member";
 			}
 			
 		}catch (SQLException e) {
 			// TODO: handle exception
-			System.out.println(Console.RED+ e.getMessage());
+			System.out.println(e.getMessage());
 		}
 		
 		return message;
