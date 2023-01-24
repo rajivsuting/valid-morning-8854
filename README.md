@@ -2,11 +2,12 @@
 
 # MGNREGA Employee System
 
-> MNREGA(The Mahatma Gandhi National Rural Employment Guarantee Act ) is a scheme by which unskilled people of rural India are guaranteed to have 100 days of paid work. Main objective of this project is to manage employments offered through this scheme so I tried to take it as a consideration and tried to make an application where we can manage employee of MGNREGA scheme and there will be two type of user GramPanchayat Member and employee
+>is an Indian labour law and social security measure that aims to guarantee the 'right to work'. This act was passed in 23 August 2005[1] under the UPA government of Prime Minister Manmohan Singh following tabling of the bill in parliament by the Minister for Rural Development Raghuvansh Prasad Singh.
+It aims to enhance livelihood security in rural areas by providing at least 100 days of wage employment in a financial year to at least one member of every household whose adult members volunteer to do unskilled manual work.[4][5][6] Women are guaranteed one third of the jobs made available under the MGNREGA
 
-> MGNREGA is an consolve based application
+> This is my first java, console base project.
 
-> MGNREGA Applcation is created during the construct week at [Masai School](https://masaischool.com/). Completed the project within six days.
+> This Applcation is created during the construct week at [Masai School](https://masaischool.com/). Completed the project within six days.
 
 # Features
 
@@ -22,11 +23,5 @@
 - Java
 - MySQL
 - Hibernate
-- spring tool suite eclipse
 - Git & GitHub
-
-# Lessons Learned
-
-- Gain excessive knowledge on application of Java, MySQL and Hibernate.
-- Implementation of Executing SQL operations with Hibernatie ORM software and Java .
-- Enjoyed the process of learning and creating the application.
+- spring tool suite eclipse
